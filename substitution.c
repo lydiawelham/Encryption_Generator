@@ -1,15 +1,16 @@
-#include <cs50.h>
+//#include <cs50.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 
+typedef char string[4096];
 
 int DuplicateCheck(string key);
 int LetterCheck(string key);
 void Encrypt(string plaintext, string key);
 
-int main(int argc, string argv[])
+int main(int argc, char* argv[])
 {
     //Checks whether key has been entered at command-line
 
@@ -55,7 +56,9 @@ int main(int argc, string argv[])
     {
         //Collects plaintext from user to be encrypted
 
-        string plaintext = get_string("Plaintext: ");
+        string plaintext = "";
+        printf("Plaintext: \n");
+        fgets(plaintext,4096,stdin);
 
         //Runs encryption function using plaintext and key collected at command-line
 
